@@ -1,12 +1,12 @@
 package mk.finki.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Place {
     private String name;
     private String street;
-    private String city;
     private float latitude;
     private float longitude;
     private List<String> categories;
@@ -32,13 +32,6 @@ public class Place {
         this.street = street;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public float getLatitude() {
         return latitude;
@@ -62,5 +55,16 @@ public class Place {
 
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "name='" + name + '\'' +
+                ", street='" + street + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", categories=" + categories +
+                '}';
     }
 }
