@@ -17,6 +17,6 @@ public class CategoryFilter implements Filter<List<Place>, List<Place>> {
     //proveruva dali vo listata od kategorii ima substring sho go barame znaci ako e catering.resaturant ke go dade i restoran
     @Override
     public List<Place> execute(List<Place> input) {
-        return input.stream().filter(x -> x.getCategories().stream().anyMatch(z -> z.contains(category))).collect(Collectors.toList());
+        return input.stream().parallel().filter(x -> x.getCategories().stream().anyMatch(z -> z.contains(category))).collect(Collectors.toList());
     }
 }

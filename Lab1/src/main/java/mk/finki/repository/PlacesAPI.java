@@ -11,10 +11,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class PlacesAPI {
     private static final String apiKey = "efc0365d3cc14750bb80dbb297d87205";
-    private static final int numberOfResults = 50;
+    private static final int numberOfResults = 500;
 
     public static String getCityId(String cityName) throws IOException, InterruptedException {
 
@@ -41,7 +42,7 @@ public class PlacesAPI {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.geoapify.com/v2/places?" +
                         "categories=catering.restaurant,catering.cafe,leisure.park,entertainment.water_park,commercial.shopping_mall&" +
-                        "filter=place:511f83bc9b806f35405918bc935fdbff4440f00101f901c14c6a0000000000c0020692030cd0a1d0bad0bed0bfd198d0b5&limit="+numberOfResults+"&" +
+                        "filter=place:"+placeId+"&limit=" + numberOfResults + "&" +
                         "apiKey=efc0365d3cc14750bb80dbb297d87205"))
                 .header("Content-Type", "application/json")
                 .build();
@@ -53,8 +54,17 @@ public class PlacesAPI {
         List<Place> places = new ArrayList<>();
         jsonArray.forEach(p -> {
             JSONObject properties = ((JSONObject)p).getJSONObject("properties");
-            Place place = new Place(properties.getString("name"));
-            place.setStreet(properties.getString("street"));
+            Set<String> keys = properties.keySet();
+
+            Place place;
+            if (keys.contains("name"))
+                place = new Place(properties.getString("name"));
+            else place = new Place("");
+
+            if (keys.contains("street"))
+                place.setStreet(properties.getString("street"));
+            else place.setStreet("");
+
             place.setLocation(new Location(properties.getFloat("lat"),properties.getFloat("lon")));
             JSONArray categoriesJson = properties.getJSONArray("categories");
             categoriesJson.forEach(c -> place.getCategories().add(c.toString()));
