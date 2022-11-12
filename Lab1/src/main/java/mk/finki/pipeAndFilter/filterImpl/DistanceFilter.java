@@ -20,18 +20,11 @@ public class DistanceFilter implements Filter<List<Place>, List<Place>> {
     @Override
     public List<Place> execute(List<Place> input) {
 
-        Comparator<Place> comparator = new Comparator<Place>() {
-            @Override
-            public int compare(Place o1, Place o2) {
+        Comparator<Place> comparator = (o1, o2) -> Double.compare
+                (Math.abs(Location.calculateDistance(o1.getLocation(), first) + Location.calculateDistance(o1.getLocation(), second))
+                ,Math.abs(Location.calculateDistance(o2.getLocation(), first) + Location.calculateDistance(o2.getLocation(), second)));
 
-                return Double.compare
-                        (Math.abs(Location.calculateDistance(o1.getLocation(), first) + Location.calculateDistance(o1.getLocation(), second))
-                        ,Math.abs(Location.calculateDistance(o2.getLocation(), first) + Location.calculateDistance(o2.getLocation(), second)));
-
-            }
-        };
-
-          return input.stream().sorted(comparator).collect(Collectors.toList());
+          return input.stream().parallel().sorted(comparator).collect(Collectors.toList());
 
     }
 }
