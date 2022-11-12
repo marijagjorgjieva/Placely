@@ -26,7 +26,7 @@ public class TestCSV {
 
 
         SaveAsCSV saveAsCSV = new SaveAsCSV();
-        saveAsCSV.toCSV(pipeline1.process( PlacesAPI.getPlacesByCityName("Skopje")));
+        saveAsCSV.toCSV(pipeline1.process( PlacesAPI.getPlacesByCityName("Prilep")));
 
     }
 }
