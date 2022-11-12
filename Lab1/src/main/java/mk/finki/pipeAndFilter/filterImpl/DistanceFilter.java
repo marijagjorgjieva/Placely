@@ -24,9 +24,14 @@ public class DistanceFilter implements Filter<List<Place>, List<Place>> {
             @Override
             public int compare(Place o1, Place o2) {
 
-                return Double.compare
+                //previous
+                /*  return Double.compare
                         (Math.abs(Location.calculateDistance(o1.getLocation(), first) + Location.calculateDistance(o1.getLocation(), second))
-                        ,Math.abs(Location.calculateDistance(o2.getLocation(), first) + Location.calculateDistance(o2.getLocation(), second)));
+                        ,Math.abs(Location.calculateDistance(o2.getLocation(), first) + Location.calculateDistance(o2.getLocation(), second)));*/
+                return Double.compare
+                        (Math.max(Location.calculateDistance(o1.getLocation(), first) , Location.calculateDistance(o1.getLocation(), second))
+                        ,Math.max(Location.calculateDistance(o2.getLocation(), first), Location.calculateDistance(o2.getLocation(), second)));
+
 
             }
         };

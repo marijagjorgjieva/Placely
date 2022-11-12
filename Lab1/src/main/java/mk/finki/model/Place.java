@@ -49,12 +49,10 @@ public class Place {
 
     @Override
     public String toString() {
-        return "Place{" +
-                "name='" + name + '\'' +
-                ", street='" + street + '\'' +
-                ", latitude=" + location.getLatitude() +
-                ", longitude=" + location.getLongitude() +
-                ", categories=" + categories +
-                "}";
+        return  name + ','
+                + street + ',' +
+                 location.getLatitude() +
+                "," + location.getLongitude() +
+                "," + categories;
     }
 }
