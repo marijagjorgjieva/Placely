@@ -43,7 +43,7 @@ public class PlacesAPI {
                 .uri(URI.create("https://api.geoapify.com/v2/places?" +
                         "categories=catering.restaurant,catering.cafe,leisure.park,entertainment.water_park,commercial.shopping_mall&" +
                         "filter=place:"+placeId+"&limit=" + numberOfResults + "&" +
-                        "apiKey=efc0365d3cc14750bb80dbb297d87205"))
+                        "apiKey="+apiKey))
                 .header("Content-Type", "application/json")
                 .build();
 
