@@ -12,11 +12,12 @@ public class SaveAsCSV {
             File csv = new File("csvFile.csv");
             if (csv.createNewFile()) {
                 System.out.println("File created: " + csv.getName());
-                try (PrintWriter pw = new PrintWriter(csv)) {
-                    data.forEach(pw::println);
-                }
+
             } else {
                 System.out.println("File already exists.");
+            }
+            try (PrintWriter pw = new PrintWriter(csv)) {
+                data.forEach(pw::println);
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
