@@ -7,8 +7,7 @@ import java.util.List;
 public class Place {
     private String name;
     private String street;
-    private float latitude;
-    private float longitude;
+    private Location location;
     private List<String> categories;
 
     public Place(String name) {
@@ -32,21 +31,12 @@ public class Place {
         this.street = street;
     }
 
-
-    public float getLatitude() {
-        return latitude;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
-    }
-
-    public float getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public List<String> getCategories() {
@@ -62,9 +52,9 @@ public class Place {
         return "Place{" +
                 "name='" + name + '\'' +
                 ", street='" + street + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
+                ", latitude=" + location.getLatitude() +
+                ", longitude=" + location.getLongitude() +
                 ", categories=" + categories +
-                '}';
+                "}";
     }
 }

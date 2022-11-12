@@ -1,5 +1,6 @@
 package mk.finki.repository;
 
+import mk.finki.model.Location;
 import mk.finki.model.Place;
 import org.json.*;
 
@@ -54,8 +55,7 @@ public class PlacesAPI {
             JSONObject properties = ((JSONObject)p).getJSONObject("properties");
             Place place = new Place(properties.getString("name"));
             place.setStreet(properties.getString("street"));
-            place.setLatitude(properties.getFloat("lat"));
-            place.setLongitude(properties.getFloat("lon"));
+            place.setLocation(new Location(properties.getFloat("lat"),properties.getFloat("lon")));
             JSONArray categoriesJson = properties.getJSONArray("categories");
             categoriesJson.forEach(c -> place.getCategories().add(c.toString()));
             places.add(place);
