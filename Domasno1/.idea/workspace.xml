@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe4217db-8b8a-4113-bd84-d0d9d6dc666c" name="Changes" comment="changed 'Lab1' to 'Domasno1'" />
+    <list default="true" id="fe4217db-8b8a-4113-bd84-d0d9d6dc666c" name="Changes" comment="made into spring project">
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/model/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/model/Place.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/SaveAsCSV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/filterImpl/CategoryFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/filterImpl/DistanceFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/filterImpl/ToStringFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/pipe/Pipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/pipe/Pipeline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/repository/PlacesAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domasno2/Prototype/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Domasno2/Prototype/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +43,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -85,19 +101,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Domasno1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Domasno1" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -117,6 +120,8 @@
       <workItem from="1668121470996" duration="6627000" />
       <workItem from="1668256778931" duration="469000" />
       <workItem from="1668276481378" duration="2749000" />
+      <workItem from="1670269777434" duration="1290000" />
+      <workItem from="1670354494845" duration="203000" />
     </task>
     <task id="LOCAL-00001" summary="added api connection and method for fetching the place_id of a city">
       <created>1668124702874</created>
@@ -184,7 +189,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="dev-spring-1" />
                       </list>
                     </value>
                   </entry>
