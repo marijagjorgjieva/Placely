@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe4217db-8b8a-4113-bd84-d0d9d6dc666c" name="Changes" comment="made into spring project">
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/model/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/model/Place.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/SaveAsCSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/filterImpl/CategoryFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/filterImpl/DistanceFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/filterImpl/ToStringFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/pipe/Pipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/pipeAndFilter/pipe/Pipeline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/java/mk/finki/ama/dom2/repository/PlacesAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/resources/templates/main-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Domasno2/Prototype/src/main/resources/templates/results-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Domasno2/Prototype/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Domasno2/Prototype/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,6 +115,7 @@
       <workItem from="1668276481378" duration="2749000" />
       <workItem from="1670269777434" duration="1290000" />
       <workItem from="1670354494845" duration="203000" />
+      <workItem from="1670448012934" duration="2101000" />
     </task>
     <task id="LOCAL-00001" summary="added api connection and method for fetching the place_id of a city">
       <created>1668124702874</created>
