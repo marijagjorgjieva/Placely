@@ -10,7 +10,7 @@
 <div class="container">
     <h1 class="title">Placely Prototype 1</h1>
 
-    <form class="form" th:method="POST" th:action="@{/userPreferences}">
+    <form class="form" th:method="POST" th:action="@{/home/userPreferences}">
 
         <div class="mb-3">
             <label for="city" class="form-label">City</label>
@@ -20,7 +20,7 @@
             <h2 class="h2"> User 1</h2>
 
             <label for="select-1" class="form-label">Categories (select multiple)</label>
-            <select multiple name="select-1" id="select-1" class="form-select">
+            <select multiple name="select1" id="select-1" class="form-select">
                 <option value="catering.restaurant">Restaurant</option>
                 <option value="internet_access">Internet access</option>
                 <option value="shopping_mall">Shopping Mall</option>
@@ -37,13 +37,13 @@
                 <option value="catering.cafe">Cafe</option>
             </select>
             <label for="location-1-text" class="form-label">User Location</label>
-            <input type="text" name="location-1" id="location-1-text" class="form-control">
+            <input type="text" name="location1" id="location-1-text" class="form-control">
         </div>
         <div class="mb-3">
             <h2 class="h2"> User 2</h2>
 
             <label for="select-2" class="form-label">Categories (select multiple)</label>
-            <select multiple id="select-2" name="select-2" class="form-select">
+            <select multiple id="select-2" name="select2" class="form-select">
                 <option value="catering.restaurant">Restaurant</option>
                 <option value="internet_access">Internet access</option>
                 <option value="shopping_mall">Shopping Mall</option>
@@ -60,7 +60,7 @@
                 <option value="catering.cafe">Cafe</option>
             </select>
             <label for="location-2-text" class="form-label">User Location</label>
-            <input type="text" name="location-2" id="location-2-text" class="form-control">
+            <input type="text" name="location2" id="location-2-text" class="form-control">
         </div>
         <div class="mb-3">
             <input type="submit" class="btn btn-success " value="Get Places" >

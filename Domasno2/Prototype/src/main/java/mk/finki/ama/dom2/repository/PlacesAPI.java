@@ -3,6 +3,7 @@ package mk.finki.ama.dom2.repository;
 import mk.finki.ama.dom2.model.Location;
 import mk.finki.ama.dom2.model.Place;
 import org.json.*;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@Repository
 public class PlacesAPI {
     private static final String apiKey = "efc0365d3cc14750bb80dbb297d87205";
     private static final int numberOfResults = 500;
@@ -37,7 +39,7 @@ public class PlacesAPI {
     }
 
 
-    public static List<Place> getPlacesFromCityByID(String placeId) throws IOException, InterruptedException {
+    public  List<Place> getPlacesFromCityByID(String placeId) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.geoapify.com/v2/places?" +
@@ -74,7 +76,7 @@ public class PlacesAPI {
         return places;
     }
 
-    public static List<Place> getPlacesByCityName(String name) throws IOException, InterruptedException {
+    public  List<Place> getPlacesByCityName(String name) throws IOException, InterruptedException {
         String cityID = getCityId(name);
         return getPlacesFromCityByID(cityID);
     }
