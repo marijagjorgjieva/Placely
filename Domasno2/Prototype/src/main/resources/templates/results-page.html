@@ -19,11 +19,12 @@
         <td>Categories</td>
       </tr>
       </thead>
-      <tr th:each="result:${results}">
-        <td th:value="${result.name}"></td>
-        <td th:value="${result.street}"></td>
-        <td th:value="${result.location}"></td>
-        <td th:value="${result.categories}"></td>
+
+      <tr th:each="result : ${results}">
+        <td th:text="${result.getName()}"></td>
+        <td th:text="${result.getStreet()}"></td>
+        <td th:text="${result.getLocation()}"></td>
+        <td th:text="${result.getCategories()}"></td>
       </tr>
 
 <!--      Hardcoded values for testing-->

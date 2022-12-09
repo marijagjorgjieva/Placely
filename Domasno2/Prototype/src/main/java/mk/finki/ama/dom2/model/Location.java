@@ -25,4 +25,10 @@ public class Location {
         return 12742 * Math.asin(Math.sqrt(a));
 
     }
+
+    @Override
+    public String toString() {
+        return "lat:" + latitude +
+                ", long:" + longitude;
+    }
 }
