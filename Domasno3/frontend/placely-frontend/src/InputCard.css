@@ -1,0 +1,15 @@
+.card {
+    background-color: #ffffffad;
+    height: 75%;
+    width: 25rem;
+    position: fixed;
+    left: 3rem;
+    top: 5rem;
+    z-index: 1000;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: auto;
+}

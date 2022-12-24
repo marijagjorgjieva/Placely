@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.app-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9000;
+}
+
+.logo{
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #2f2f2fed;
+}
