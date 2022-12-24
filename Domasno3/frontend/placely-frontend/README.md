@@ -1,3 +1,20 @@
+# Како да сетирате развојна околина ?
+1. навигирај до placely-frontend директориумот со ```cd``` во терминал
+1. инсталирај node верзија ```16.16.0```
+2. инсталирај зависности: ```npm install react leaflet react-leaflet```
+3. стартувај ја апликацијата со ```npm start```
+
+
+
+# Автоматски генериран readme од Create React App:
+
+-----------------------------------
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
