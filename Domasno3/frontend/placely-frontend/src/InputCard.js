@@ -40,7 +40,7 @@ export default class InputCard extends React.Component {
                 </div>
                 <div className='mb-3'>
                     <h2 className='h2'>User 1</h2>
-                    <label for='select1' className='form-label'>preferences</label>
+                    <label for='select1' className='form-label'>prefered categories</label>
                     <select multiple name='select1' id='select1' className='form-select'>
                         <option value="catering.restaurant">Restaurant</option>
                         <option value="internet_access">Internet access</option>
@@ -58,14 +58,14 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location1' className='form-label'>Location</label>
-                    <input type='text' id='location1' name='location1' placeholder='Location' className='form-control'></input>
+                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control'></input>
                 </div>
 
                 <div className='mb-3'>
                     <h2 className='h2'>User 2</h2>
 
 
-                    <label for='select1' className='form-label'>preferences</label>
+                    <label for='select1' className='form-label'>prefered categories</label>
                     <select multiple name='select2' id='select2' className='form-select'>
                         <option value="catering.restaurant">Restaurant</option>
                         <option value="internet_access">Internet access</option>
@@ -83,7 +83,7 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location2' className='form-label'>Location</label>
-                    <input type='text' id='location2' name='location2' placeholder='Location' className='form-control'></input>
+                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control'></input>
                 </div>
 
                 {/* <input type='submit' value='Submit' className='btn btn-success'></input> */}
