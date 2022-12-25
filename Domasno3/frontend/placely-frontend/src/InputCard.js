@@ -20,7 +20,7 @@ export default class InputCard extends React.Component {
     }
 
      sendRequest (str)  {
-        fetch('http://localhost:9090/api/home/userPreferences?'+str, {mode:'cors'})
+        fetch('http://206.189.96.78:9090/api/home/userPreferences?'+str, {mode:'cors'})
             .then((response) => response.json())
             .then((data) => {
                 this.props.onGetResults({"res" : data});
