@@ -5,6 +5,12 @@
 
  - Креираење на нова React апликација за фронтенд со NodeJS runtime enviroment, мапа базирана на Leaflet
  - Рефакторирање на контролер во рест контролер 
+ - додавање на reverse-proxy на backend со nginx
+ - deployment на DigitalOcean:
+     - backend хостиран на DigitalOcean Droplet со сопствена конфигурација (OpenJDK , nginx и регистрирани systemd сервиси) на Ubuntu 22.10
+         - рачно генериран и инсталиран TLS сертификат издаден од LetsEncrypt
+     - frontend хостиран на DigitalOcean AppPlatform со автоматска конфигурација
+     
 
 линк до апликација https://placely.tech и видео на https://youtu.be/HF5lMNp2Who
 
