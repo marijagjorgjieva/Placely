@@ -1,7 +1,7 @@
 import 'leaflet/dist/leaflet.css';
 import './MapComponent.css'
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 
 const icon = L.icon({ iconUrl: "/marker-icon.png" });
@@ -53,7 +53,8 @@ class MapComponent extends React.Component {
         return (
             
             <div className='map'>
-            <MapContainer center={[41.996, 21.4310]} zoom={14} scrollWheelZoom={true}>
+            <MapContainer center={[41.996, 21.4310]} zoom={14} scrollWheelZoom={true} zoomControl={false} >
+                <ZoomControl position="bottomright"  />
                 <MyComponent lat={first.location.latitude} lon={first.location.longitude}/>
                 <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
