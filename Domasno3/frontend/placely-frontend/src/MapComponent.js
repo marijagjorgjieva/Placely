@@ -75,6 +75,7 @@ class MapComponent extends React.Component {
             
             <div className='map'>
             <MapContainer center={[41.996, 21.4310]} zoom={14} scrollWheelZoom={true} zoomControl={false}>
+
                 <ZoomControl position="bottomright"  />
                 <MyComponent lat={first.location.latitude} lon={first.location.longitude}/>
 

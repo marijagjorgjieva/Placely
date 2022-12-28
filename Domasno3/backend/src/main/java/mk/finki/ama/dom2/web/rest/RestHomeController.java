@@ -25,7 +25,7 @@ public class RestHomeController {
         this.placesService = placesService;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin()
     @GetMapping("/userPreferences")
     public ResponseEntity<List<Place>> showResultsGet(
             @RequestParam String city,
