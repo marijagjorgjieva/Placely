@@ -96,7 +96,7 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location1' className='form-label'>Location</label>
-                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput1} value={this.state.pos1} disabled></input>
+                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput1} value={this.state.pos1} ></input>
                 </div>
 
                 <div className='mb-3'>
@@ -121,7 +121,7 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location2' className='form-label'>Location</label>
-                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput2} value={this.state.pos2} disabled></input>
+                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput2} value={this.state.pos2} ></input>
                 </div>
 
                 {/* <input type='submit' value='Submit' className='btn btn-success'></input> */}
