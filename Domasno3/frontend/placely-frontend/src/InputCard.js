@@ -6,6 +6,30 @@ export default class InputCard extends React.Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.sendRequest = this.sendRequest.bind(this);
+        this.changedInput1 = this.changedInput1.bind(this);
+        this.changedInput2 = this.changedInput2.bind(this);
+        const { pos1, pos2 } = this.props;
+        this.state = {
+            pos1: `${pos1.lat},${pos1.lng}`,
+            pos2: `${pos2.lat},${pos2.lng}`
+        }
+    }
+    componentDidMount() {
+        const { pos1, pos2 } = this.props;
+        this.setState({
+            pos1: `${pos1.lat},${pos1.lng}`,
+            pos2: `${pos2.lat},${pos2.lng}`
+        });
+      }
+    
+      componentDidUpdate(prevProps) {
+        const { pos1, pos2 } = this.props;
+        if (pos1 !== prevProps.pos1 || pos2 !== prevProps.pos2) {
+          this.setState({
+            pos1: `${pos1.lat},${pos1.lng}`,
+            pos2: `${pos2.lat},${pos2.lng}`
+        });
+        }
     }
     
       handleSubmit(e) {
@@ -27,6 +51,20 @@ export default class InputCard extends React.Component {
                 // console.log(data);
             });
 
+    }
+
+    changedInput1(e){
+        var str = e.target.value;
+        var arr = str.split(",");
+        this.props.updateLocation1(arr[0], arr[1]);
+    // console.log(arr);
+    }
+
+    changedInput2(e){
+        var str = e.target.value;
+        var arr = str.split(",");
+        this.props.updateLocation2(arr[0], arr[1]);
+    // console.log(arr);
     }
 
     
@@ -58,7 +96,7 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location1' className='form-label'>Location</label>
-                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control'></input>
+                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput1} value={this.state.pos1} disabled></input>
                 </div>
 
                 <div className='mb-3'>
@@ -83,7 +121,7 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location2' className='form-label'>Location</label>
-                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control'></input>
+                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput2} value={this.state.pos2} disabled></input>
                 </div>
 
                 {/* <input type='submit' value='Submit' className='btn btn-success'></input> */}
