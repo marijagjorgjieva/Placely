@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import MapComponent from './MapComponent.js'
 import InputCard from './InputCard.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends React.Component {
 
@@ -18,6 +20,7 @@ class App extends React.Component {
     this.handleResults = this.handleResults.bind(this);
     this.updateLocation1 = this.updateLocation1.bind(this);
     this.updateLocation2 = this.updateLocation2.bind(this);
+    this.makeErrorToast = this.makeErrorToast.bind(this);
     this.render = this.render.bind(this);
   }
 
@@ -36,6 +39,10 @@ class App extends React.Component {
         this.setState({pos2: {lat: lat, lng: lng}})
     }
 
+    makeErrorToast = (message) => {
+      toast.error(message)
+    }
+
  
   render() {
     return (
@@ -44,7 +51,25 @@ class App extends React.Component {
           <h1 className='logo'>Placely</h1>
         </header>
         <MapComponent results = {this.state.results} updateLocation1 = {this.updateLocation1} updateLocation2={this.updateLocation2} pos1={this.state.pos1} pos2={this.state.pos2}  />
-        <InputCard onGetResults = {this.handleResults} updateLocation1 = {this.updateLocation1} updateLocation2={this.updateLocation2} pos1={this.state.pos1} pos2={this.state.pos2} />
+        <InputCard onGetResults = {this.handleResults} 
+                  updateLocation1 = {this.updateLocation1} 
+                  updateLocation2={this.updateLocation2} 
+                  pos1={this.state.pos1} 
+                  pos2={this.state.pos2} 
+                  errToast={this.makeErrorToast}/>
+        <ToastContainer 
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+        />
+
       </div>
     );
   }

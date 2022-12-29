@@ -1,5 +1,8 @@
 import './InputCard.css';
 import React from 'react';
+
+
+
 export default class InputCard extends React.Component {
 
     constructor(props) {
@@ -11,7 +14,7 @@ export default class InputCard extends React.Component {
         const { pos1, pos2 } = this.props;
         this.state = {
             pos1: `${pos1.lat},${pos1.lng}`,
-            pos2: `${pos2.lat},${pos2.lng}`
+            pos2: `${pos2.lat},${pos2.lng}`,
         }
     }
     componentDidMount() {
@@ -35,11 +38,17 @@ export default class InputCard extends React.Component {
       handleSubmit(e) {
         e.preventDefault();
         let data = new FormData(document.getElementById('form')).entries();
+        console.log(data);
         var strarr = [];
         for (const entry of data){
+            if(entry[1] === ""){
+                this.props.errToast("Please fill all fields");
+                return;
+            }
             strarr.push(entry[0]+"="+entry[1]);
         }
         var str = strarr.join("&");
+        console.log(str);
         this.sendRequest(str);
     }
 
