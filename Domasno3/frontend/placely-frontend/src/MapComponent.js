@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, ZoomControl } from 'rea
 import L from 'leaflet';
 
 const icon = L.icon({ iconUrl: "/marker-icon.png" });
+const userIcon = L.icon({ iconUrl: "/marker-user-icon.png" });
 
 
 function MyComponent(props) {
@@ -36,7 +37,7 @@ function MyComponent(props) {
             eventHandlers={eventHandlers}
             position={position}
             ref={markerRef}
-            icon = {icon}
+            icon = {userIcon}
             autoPan = {true}
             ></Marker>
     )
