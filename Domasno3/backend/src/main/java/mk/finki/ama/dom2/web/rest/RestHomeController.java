@@ -35,8 +35,8 @@ public class RestHomeController {
             @RequestParam String location2)
             throws IOException, InterruptedException {
 
-        String[]locations1 = location1.split(",");
-        String[]locations2 = location2.split(",");
+        String[] locations1 = location1.split(",");
+        String[] locations2 = location2.split(",");
         Location l1 = new Location(Double.parseDouble(locations1[0]), Double.parseDouble(locations1[1]));
         Location l2 = new Location(Double.parseDouble(locations2[0]), Double.parseDouble(locations2[1]));
 
