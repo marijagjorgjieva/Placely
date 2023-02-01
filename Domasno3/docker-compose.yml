@@ -1,0 +1,14 @@
+version: '1.0'
+services:
+  placely-backend:
+    build:
+      context: ./backend
+    ports:
+      - "9090:9090"
+    image: adaskalov/placely:backend-latest
+  placely-frontend:
+    build:
+      context: ./frontend/placely-frontend
+    ports:
+      - "80:3000"
+    image: adaskalov/placely:frontend-latest
