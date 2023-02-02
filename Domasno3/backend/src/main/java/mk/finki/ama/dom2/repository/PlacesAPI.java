@@ -3,6 +3,7 @@ package mk.finki.ama.dom2.repository;
 import mk.finki.ama.dom2.model.Location;
 import mk.finki.ama.dom2.model.Place;
 import org.json.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -16,7 +17,12 @@ import java.util.Set;
 
 @Repository
 public class PlacesAPI {
-    private static final String apiKey = "efc0365d3cc14750bb80dbb297d87205";
+    private static String apiKey;
+
+    @Value("${apiKey}")
+    public void setApiKey (String key) {
+        apiKey = key;
+    }
     private static final int numberOfResults = 500;
 
     public static String getCityId(String cityName) throws IOException, InterruptedException {
