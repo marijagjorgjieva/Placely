@@ -1,7 +1,6 @@
 import './InputCard.css';
 import React from 'react';
-
-
+let SERVER_ADDR = process.env.REACT_APP_SERVER_ADDRESS;
 
 export default class InputCard extends React.Component {
 
@@ -53,7 +52,7 @@ export default class InputCard extends React.Component {
     }
 
      sendRequest (str)  {
-        fetch('https://api.placely.social/api/home/userPreferences?'+str, {mode:'cors'})
+        fetch(SERVER_ADDR + '/api/home/userPreferences?'+str, {mode:'cors'})
             .then((response) => response.json())
             .then((data) => {
                 this.props.onGetResults({"res" : data});
