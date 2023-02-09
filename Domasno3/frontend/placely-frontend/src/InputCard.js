@@ -1,84 +1,50 @@
+import React, { useState, useEffect } from 'react';
 import './InputCard.css';
-import React from 'react';
-let SERVER_ADDR = process.env.REACT_APP_SERVER_ADDRESS;
+import { sendRequest } from './lib/input';
 
-export default class InputCard extends React.Component {
+export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation2, errToast, onGetResults, infoToast , emptyToast })  {
+  const [position1, setPosition1] = useState(`${pos1.lat},${pos1.lng}`);
+  const [position2, setPosition2] = useState(`${pos2.lat},${pos2.lng}`);
 
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.sendRequest = this.sendRequest.bind(this);
-        this.changedInput1 = this.changedInput1.bind(this);
-        this.changedInput2 = this.changedInput2.bind(this);
-        const { pos1, pos2 } = this.props;
-        this.state = {
-            pos1: `${pos1.lat},${pos1.lng}`,
-            pos2: `${pos2.lat},${pos2.lng}`,
-        }
-    }
-    componentDidMount() {
-        const { pos1, pos2 } = this.props;
-        this.setState({
-            pos1: `${pos1.lat},${pos1.lng}`,
-            pos2: `${pos2.lat},${pos2.lng}`
-        });
+  useEffect(() => {
+    setPosition1(`${pos1.lat},${pos1.lng}`);
+    setPosition2(`${pos2.lat},${pos2.lng}`);
+  }, [pos1, pos2]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let data = new FormData(document.getElementById('form')).entries();
+    var strarr = [];
+    for (const entry of data) {
+      if (entry[1] === '') {
+        errToast('Please fill all fields');
+        return;
       }
-    
-      componentDidUpdate(prevProps) {
-        const { pos1, pos2 } = this.props;
-        if (pos1 !== prevProps.pos1 || pos2 !== prevProps.pos2) {
-          this.setState({
-            pos1: `${pos1.lat},${pos1.lng}`,
-            pos2: `${pos2.lat},${pos2.lng}`
-        });
-        }
+      strarr.push(entry[0] + '=' + entry[1]);
     }
-    
-      handleSubmit(e) {
-        e.preventDefault();
-        let data = new FormData(document.getElementById('form')).entries();
-        console.log(data);
-        var strarr = [];
-        for (const entry of data){
-            if(entry[1] === ""){
-                this.props.errToast("Please fill all fields");
-                return;
-            }
-            strarr.push(entry[0]+"="+entry[1]);
-        }
-        var str = strarr.join("&");
-        console.log(str);
-        this.sendRequest(str);
+    var str = strarr.join('&');
+    const results = await infoToast(sendRequest(str));
+    console.log(results)
+    if (results === undefined || results === null || results.res.length === 0) {
+      emptyToast();
     }
+    onGetResults(results);
+  };
 
-     sendRequest (str)  {
-        fetch(SERVER_ADDR + '/api/home/userPreferences?'+str, {mode:'cors'})
-            .then((response) => response.json())
-            .then((data) => {
-                this.props.onGetResults({"res" : data});
-                // console.log(data);
-            });
+  const handleInput1 = (e) => {
+    var str = e.target.value;
+    var arr = str.split(',');
+    updateLocation1(arr[0], arr[1]);
+  };
 
-    }
+  const handleInput2 = (e) => {
+    var str = e.target.value;
+    var arr = str.split(',');
+    updateLocation2(arr[0], arr[1]);
+  };
 
-    changedInput1(e){
-        var str = e.target.value;
-        var arr = str.split(",");
-        this.props.updateLocation1(arr[0], arr[1]);
-    // console.log(arr);
-    }
-
-    changedInput2(e){
-        var str = e.target.value;
-        var arr = str.split(",");
-        this.props.updateLocation2(arr[0], arr[1]);
-    // console.log(arr);
-    }
-
-    
-    render(){
-    return (
-        <div className='card container'>
+  return (
+    <div className='card container'>
             <form id='form'>
                 <div className='mb-3'>
                     <label for='city' className='form-label'>City</label>
@@ -104,7 +70,7 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location1' className='form-label'>Location</label>
-                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput1} value={this.state.pos1} ></input>
+                    <input type='text' id='location1' name='location1' placeholder='41.989392, 21.452028' className='form-control' onChange={handleInput1} value={position1} ></input>
                 </div>
 
                 <div className='mb-3'>
@@ -129,13 +95,12 @@ export default class InputCard extends React.Component {
                         <option value="catering.cafe">Cafe</option>
                     </select>
                     <label for='location2' className='form-label'>Location</label>
-                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control' onChange={this.changedInput2} value={this.state.pos2} ></input>
+                    <input type='text' id='location2' name='location2' placeholder='41.989392, 21.452028' className='form-control' onChange={handleInput2} value={position2} ></input>
                 </div>
 
                 {/* <input type='submit' value='Submit' className='btn btn-success'></input> */}
-                <button className='btn btn-success' onClick={this.handleSubmit}>Submit</button>
+                <button className='btn btn-success' onClick={handleSubmit}>Submit</button>
             </form>
         </div>
-    )
-    }
-}
+    );
+};
