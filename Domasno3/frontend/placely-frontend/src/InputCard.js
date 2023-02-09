@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './InputCard.css';
 import { sendRequest } from './lib/input';
 
-export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation2, errToast, onGetResults })  {
+export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation2, errToast, onGetResults, infoToast })  {
   const [position1, setPosition1] = useState(`${pos1.lat},${pos1.lng}`);
   const [position2, setPosition2] = useState(`${pos2.lat},${pos2.lng}`);
 
@@ -25,7 +25,7 @@ export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation
     }
     var str = strarr.join('&');
     console.log(str);
-    const results = await sendRequest(str);
+    const results = await infoToast(sendRequest(str));
     onGetResults(results);
   };
 

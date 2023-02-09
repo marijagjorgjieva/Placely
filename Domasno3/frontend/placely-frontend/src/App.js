@@ -26,6 +26,13 @@ export default function App()  {
   const makeErrorToast = (message) => {
     toast.error(message);
   };
+  const makeInfoToast = (promise) => {
+    return toast.promise(promise, {
+      pending: "Loading...",
+      success: "Found!",
+      error: "Error"
+      });
+  };
 
   return (
     <div className="App">
@@ -33,7 +40,7 @@ export default function App()  {
         <h1 className='logo'>Placely</h1>
       </header>
       <MapComponent results={results} updateLocation1={updateLocation1} updateLocation2={updateLocation2} pos1={pos1} pos2={pos2} />
-      <InputCard onGetResults={handleResults} updateLocation1={updateLocation1} updateLocation2={updateLocation2} pos1={pos1} pos2={pos2} errToast={makeErrorToast} />
+      <InputCard onGetResults={handleResults} updateLocation1={updateLocation1} updateLocation2={updateLocation2} pos1={pos1} pos2={pos2} errToast={makeErrorToast} infoToast={ makeInfoToast } />
       <ToastContainer 
           position="top-center"
           autoClose={5000}
