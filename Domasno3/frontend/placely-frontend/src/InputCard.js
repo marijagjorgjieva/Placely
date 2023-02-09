@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './InputCard.css';
 import { sendRequest } from './lib/input';
 
-export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation2, errToast, onGetResults, infoToast })  {
+export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation2, errToast, onGetResults, infoToast , emptyToast })  {
   const [position1, setPosition1] = useState(`${pos1.lat},${pos1.lng}`);
   const [position2, setPosition2] = useState(`${pos2.lat},${pos2.lng}`);
 
@@ -14,7 +14,6 @@ export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation
   const handleSubmit = async (e) => {
     e.preventDefault();
     let data = new FormData(document.getElementById('form')).entries();
-    console.log(data);
     var strarr = [];
     for (const entry of data) {
       if (entry[1] === '') {
@@ -24,8 +23,11 @@ export default function InputCard ({ pos1, pos2, updateLocation1, updateLocation
       strarr.push(entry[0] + '=' + entry[1]);
     }
     var str = strarr.join('&');
-    console.log(str);
     const results = await infoToast(sendRequest(str));
+    console.log(results)
+    if (results === undefined || results === null || results.res.length === 0) {
+      emptyToast();
+    }
     onGetResults(results);
   };
 

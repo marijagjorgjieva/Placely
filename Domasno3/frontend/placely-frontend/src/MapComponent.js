@@ -53,7 +53,7 @@ export default function MapComponent({ results, updateLocation1, updateLocation2
         }
     }, [results]);
 
-    const first = (resState != undefined && resState.length > 0) ? resState[0] : { location: { latitude: 41.996, longitude: 21.4310 } };
+    const first = (resState !== undefined && resState.length > 0) ? resState[0] : { location: { latitude: 41.996, longitude: 21.4310 } };
 
     return (
         <div className='map'>
@@ -76,7 +76,7 @@ export default function MapComponent({ results, updateLocation1, updateLocation2
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 
                 {
-                    resState != undefined ? resState.map((result) => {
+                    resState !== undefined ? resState.map((result) => {
                         return (
                             <Marker position={[result.location.latitude, result.location.longitude]} icon={icon}>
                                 <Popup>

@@ -24,14 +24,42 @@ export default function App()  {
   };
 
   const makeErrorToast = (message) => {
-    toast.error(message);
+    toast.error(message, {
+      autoClose: 5000,
+      hideProgressBar: true,
+      pauseOnHover: true,
+      closeOnClick: false,
+      progress: undefined,
+      draggable: false,
+      theme: "dark",
+      });
   };
   const makeInfoToast = (promise) => {
     return toast.promise(promise, {
       pending: "Loading...",
-      success: "Found!",
+      success: "Succesfully loaded!",
       error: "Error"
+      },
+      {
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
       });
+  };
+  const emptyResultsToast = () => {
+    toast.warning("No places matching your preferences were found.",{
+      autoClose: 5000,
+      hideProgressBar: true,
+      pauseOnHover: true,
+      closeOnClick: false,
+      progress: undefined,
+      draggable: false,
+      theme: "dark",
+    });
   };
 
   return (
@@ -39,8 +67,19 @@ export default function App()  {
       <header className="app-header">
         <h1 className='logo'>Placely</h1>
       </header>
-      <MapComponent results={results} updateLocation1={updateLocation1} updateLocation2={updateLocation2} pos1={pos1} pos2={pos2} />
-      <InputCard onGetResults={handleResults} updateLocation1={updateLocation1} updateLocation2={updateLocation2} pos1={pos1} pos2={pos2} errToast={makeErrorToast} infoToast={ makeInfoToast } />
+      <MapComponent results={results} 
+                    updateLocation1={updateLocation1} 
+                    updateLocation2={updateLocation2} 
+                    pos1={pos1} 
+                    pos2={pos2} />
+      <InputCard onGetResults={handleResults} 
+                updateLocation1={updateLocation1} 
+                updateLocation2={updateLocation2} 
+                pos1={pos1} 
+                pos2={pos2} 
+                errToast={makeErrorToast} 
+                infoToast={ makeInfoToast } 
+                emptyToast = { emptyResultsToast }/>
       <ToastContainer 
           position="top-center"
           autoClose={5000}
