@@ -13,8 +13,9 @@
 	1. Рефакторирана е секоја компонента да биде функциска компонента, наместо класна
 	2. Компонентите сега користат *Hooks* на место од *React lifecycle methods*
 	3. Додаден е нов *Loading pop-up* за подобро разбирање и користење на апликацијата
+	<br>
 ![Loading popup](https://user-images.githubusercontent.com/41647331/217871819-99774ac4-0bc4-4322-83fd-8d20d98b4901.png)
-<div align="center"><i><b>Loading pop-up</bold></i></div>
+<div align="center"><i>Loading pop-up</i></div>
 
 - Извршено **рефакторирање** во *service* и *web* слоевите:  
 	1.	Рефакториран  е методот за филтрирање на места и преместен од *web* слојот во *service* слојот
